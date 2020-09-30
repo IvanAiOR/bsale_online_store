@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel='icon' href='./img/shopping-cart.svg' type='image/x-icon' />
+    <title>Products</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">B SALE</h1>
+        <ul class="nav">
+            <li class="navlink"><a href="/">Shop</a></li>
+            <li class="search">
+                <form id='idFormSearch' onsubmit="LoadDataContain(event)" action="/api/catalogo/contain">
+                    <input type="text" name="searchData">
+                    <button type="submit">SEARCH !</button>
+                </form>
+            </li>
+            <li class="navlink"><a href="/"><img src="./img/shopping-cart.svg" width="20em"> </a></li>
+        </ul>
+    </header>
+
+    <article class="center">
+        <article id="idArticleGrid" class="grid-container">
+            <article class="grid-item">
+                <article class="card">
+                    <img src="./img/shoes.jpg" style="width:100%" alt="">
+                    <div class="container">
+                        <h4><b>Item Demo</b></h4>
+                        <p>This item is a demo to test things</p>
+                    </div>
+                </article>
+            </article>
+
+            
+            
+        </article>
+
+    </article>
+        
+
+    <footer class="text-center">
+        Developed by Tena.
+    </footer>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
