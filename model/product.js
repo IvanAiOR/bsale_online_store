@@ -1,31 +1,23 @@
 const { pool } = require("../database/config");
+const {QueryBuilder} = require("../helpers/queryBuilder");
 
 const product = {};
 
 product.all = async () => {
-    return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM product', (errorResult, rowResult) => {
-            if (errorResult) {
-                console.log(errorResult)
-
-                return reject;
-            }
-            return resolve(rowResult);
-        })
-    })
-
+    return await QueryBuilder(`SELECT * FROM product`);
 }
-product.containName = async(key) => {
-    return new Promise((resolve, reject) => {
-        pool.query(`SELECT * FROM product WHERE name LIKE '%${key}%'`, (errorResult, rowResult) => {
-            if (errorResult) {
-                console.log(errorResult)
+product.containName = async(searchKey) => {
+    return await QueryBuilder(`SELECT * FROM product WHERE name LIKE '%${searchKey}%'`);
+}
+product.filterByCategory = async(categoryID)=>{
+    return await QueryBuilder(`SELECT * FROM product join category on category.id = product.category WHERE category=${categoryID}`);
+}
+product.priceBetween = async(minPrice=0,maxPrice=999999999)=>{
+    return await QueryBuilder(`SELECT * FROM product where price between ${minPrice} and ${maxPrice}`);
+}
 
-                return reject;
-            }
-            return resolve(rowResult);
-        })
-    })
+product.byID=async(productID)=>{
+    return await QueryBuilder(`SELECT * FROM product join category on category.id = product.category WHERE id=${productID}`);
 
 }
 module.exports = product;

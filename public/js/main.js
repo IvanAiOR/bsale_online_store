@@ -12,3 +12,4 @@ function include(file) {
 include('./js/fetch-api.js'); 
 include('./js/grid-view.js'); 
 include('./js/form-search.js'); 
+include('./js/cart.js'); 

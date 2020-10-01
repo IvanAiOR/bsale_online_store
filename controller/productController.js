@@ -18,7 +18,7 @@ try {
 const ReturnDataWith = async(req = request, res = response) => {
    try {
     const {dataSearched} = req.body;
-    
+    console.log(dataSearched)
     const FoundProducts = await product.containName(dataSearched)
     res.status(200).json({
         ok:true,
@@ -29,7 +29,38 @@ const ReturnDataWith = async(req = request, res = response) => {
 }  
 }
 
+const ReturnDataByID = async(req = request, res = response)=>{
+    try {
+        const {id} = req.body;
+        
+        const FoundProduct = await product.byID(id)
+        res.status(200).json({
+            ok:true,
+            data:FoundProduct
+    });
+    } catch (error) {
+        ResponseServerError(res,{msg:`Can't return the products`, error})
+        
+    }
+}
+
+const ReturnByCategory= async(req = request, res = response) =>{
+    try {
+        const {categoryID} = req.body
+        const FoundProducts = await product.filterByCategory(categoryID);
+        res.status(200).json({
+            ok:true,
+            data:FoundProducts
+    });
+    } catch (error) {
+        ResponseServerError(res,{msg:`Can't return the products`, error})
+        
+    }
+}
+
 module.exports = {
     ReturnAll,
-    ReturnDataWith
+    ReturnDataWith,
+    ReturnDataByID,
+    ReturnByCategory
 }

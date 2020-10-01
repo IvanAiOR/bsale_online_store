@@ -1,30 +1,44 @@
+
 const GetAllProducts = async () => {
     const init = {
         method: 'get'
     }
-    await fetch('/api/products/all', init).catch((error) => {
+    try {
+        const responseFetch = await fetch('/api/product/all', init)
+            .then(response => response.json());
+
+        return responseFetch.data;
+
+    } catch (error) {
         return {
             ok: false,
-            msg: 'Can´t reach the server side'
+            msg: 'Can´t reach the server side',
+            error
         }
-    }).then(data => {
-        return data;
-    });
-    
+
+    }
+
 }
 
 const GetDataContain = async (url, body) => {
     const init = {
-        method: 'GET',
-        body
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
     }
-    await fetch(url, init).catch((error) => {
+    try {
+
+        const responseFetch = await fetch(url, init).then(response => response.json());
+        console.log(responseFetch)
+        return responseFetch.data;
+
+    } catch (error) {
+        console.log(error)
         return {
             ok: false,
-            msg: 'Can´t reach the server side'
+            msg: 'Can´t reach the server side trying to search products',
+            error
         }
-    }).then(data => {
-        return data;
-    });
 
+    }
 }
