@@ -54,3 +54,10 @@ const GetLocalStorageCartList = (localStorageKey) => {
     const localStorageList = localStorage.getItem(localStorageKey)
     return JSON.parse(localStorageList);
 }
+
+const LoadCartTable = ()=>{
+    const ArticleGrid = document.getElementById('idArticleGrid');
+    
+    ArticleGrid.innerHTML()
+}
+

@@ -4,13 +4,14 @@ window.onload = async () => {
     const allProducts = await GetAllProducts()
     if (allProducts) {
         
-        LoadGrid(allProducts)
+        //LoadGrid(allProducts)
 
     }
 };
 
 
 const LoadGrid = (list = []) => {
+    //allow load the list of item in a grid on the main page
     let girdList = '';
     list.forEach(element => {
         girdList += `

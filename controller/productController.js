@@ -18,7 +18,6 @@ try {
 const ReturnDataWith = async(req = request, res = response) => {
    try {
     const {dataSearched} = req.body;
-    console.log(dataSearched)
     const FoundProducts = await product.containName(dataSearched)
     res.status(200).json({
         ok:true,
