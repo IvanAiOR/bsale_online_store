@@ -1,11 +1,11 @@
 const {Router} = require('express');
 const {check} = require('express-validator');
-const { ReturnDataWith, ReturnAll, ReturnDataByID, ReturnByCategory } = require('../controller/productController');
+const { ReturnProductsWith, ReturnAllProducts, ReturnDataByID, ReturnProductsByCategory } = require('../controller/productController');
 const { validFields } = require('../middleware/valid-filter');
 const router = Router();
 
 
-router.get('/all',ReturnAll);
+router.get('/all',ReturnAllProducts);
 
 router.post('/contain',
 [
@@ -15,7 +15,7 @@ router.post('/contain',
     //validFields check if the previous checks were completed
     validFields
 ],
-ReturnDataWith);
+ReturnProductsWith);
 
 router.get('/details/:id', [
     check('id','Should have an id').notEmpty(),
@@ -24,11 +24,11 @@ router.get('/details/:id', [
 ],
 ReturnDataByID);
 
-router.get('/byCategory',[
+router.post('/byCategory',[
     check('categoryID','This route have to use a categoryID var to filter by category').notEmpty(),
-    check('categoryID','categoryID should be a number').isInt()
+    check('categoryID','categoryID should be a number').isNumeric()
 ],
-ReturnByCategory);
+ReturnProductsByCategory);
 
 
 

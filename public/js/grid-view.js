@@ -1,15 +1,3 @@
-
-
-window.onload = async () => {
-    const allProducts = await GetAllProducts()
-    if (allProducts) {
-        
-        //LoadGrid(allProducts)
-
-    }
-};
-
-
 const LoadGrid = (list = []) => {
     //allow load the list of item in a grid on the main page
     let girdList = '';
@@ -27,8 +15,8 @@ const LoadGrid = (list = []) => {
 
                         </div>
                         <div class="column">
-                            <a onclick="AddToCart(${element.id})" class="pointer"> 
-                                <img src="./img/shopping-cart.svg" alt="" style="width: 20%;">
+                            <a onclick="AddToCart(${element.id})" title="Add to cart" class="pointer"> 
+                                <img src="./img/shopping-cart.svg" alt="${element.name}" style="width: 20%;">
                             </a>
                         </div>
                     </div>

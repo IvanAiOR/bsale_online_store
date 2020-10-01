@@ -1,8 +1,8 @@
 const { request, response } = require('express');
-const { ResponseServerError, ResponseBadRequest } = require('../helpers/response-returns');
+const { ResponseServerError } = require('../helpers/response-returns');
 const product = require('../model/product');
 
-const ReturnAll = async(req = request, res = response) => {
+const ReturnAllProducts = async(req = request, res = response) => {
 try {
 
     const allProducts = await product.all()
@@ -15,7 +15,7 @@ try {
 }    
 }
 
-const ReturnDataWith = async(req = request, res = response) => {
+const ReturnProductsWith = async(req = request, res = response) => {
    try {
     const {dataSearched} = req.body;
     const FoundProducts = await product.containName(dataSearched)
@@ -43,7 +43,7 @@ const ReturnDataByID = async(req = request, res = response)=>{
     }
 }
 
-const ReturnByCategory= async(req = request, res = response) =>{
+const ReturnProductsByCategory= async(req = request, res = response) =>{
     try {
         const {categoryID} = req.body
         const FoundProducts = await product.filterByCategory(categoryID);
@@ -58,8 +58,8 @@ const ReturnByCategory= async(req = request, res = response) =>{
 }
 
 module.exports = {
-    ReturnAll,
-    ReturnDataWith,
+    ReturnAllProducts,
+    ReturnProductsWith,
     ReturnDataByID,
-    ReturnByCategory
+    ReturnProductsByCategory
 }

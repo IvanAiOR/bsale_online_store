@@ -2,7 +2,7 @@ const {QueryBuilder} = require("../helpers/queryBuilder");
 
 const category={};
 
-category.all = () =>{
+category.all = async() =>{
     return await QueryBuilder(`SELECT * FROM category`);
 }
 

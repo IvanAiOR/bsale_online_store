@@ -55,9 +55,31 @@ const GetLocalStorageCartList = (localStorageKey) => {
     return JSON.parse(localStorageList);
 }
 
-const LoadCartTable = ()=>{
-    const ArticleGrid = document.getElementById('idArticleGrid');
-    
+const LoadCartTable = () => {
+    const cartCard = `
+    <article class="card cart-card">
+        <h3 class="text-center">Cart List</h3>
+        <table class="cart-table">
+            <thead>
+
+                <tr>
+                    <th>SKU</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1234</td>
+                    <td>asd</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+    `;
     ArticleGrid.innerHTML()
 }
 

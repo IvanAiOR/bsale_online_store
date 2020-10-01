@@ -10,7 +10,8 @@ product.containName = async(searchKey) => {
     return await QueryBuilder(`SELECT * FROM product WHERE name LIKE '%${searchKey}%'`);
 }
 product.filterByCategory = async(categoryID)=>{
-    return await QueryBuilder(`SELECT * FROM product join category on category.id = product.category WHERE category=${categoryID}`);
+    
+    return await QueryBuilder(`SELECT * FROM product join category on category.id = product.category WHERE product.category=${categoryID}`);
 }
 product.priceBetween = async(minPrice=0,maxPrice=999999999)=>{
     return await QueryBuilder(`SELECT * FROM product where price between ${minPrice} and ${maxPrice}`);

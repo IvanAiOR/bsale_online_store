@@ -23,44 +23,24 @@
             <li class="navlink"><a onclick="LoadCartTable()"><img src="./img/shopping-cart.svg" title="Open your Cart" width="25em"> </a></li>
         </ul>
     </header>
-    
+    <br>
+    <article class="row center">
+        <select id="idFilter" class="inp-select column">
+            <option value="-1" selected>Loading Data...</option>
+        </select>       
+        <button class="btn-filter" onclick="FilterProductByCategory()">FILT</button>
+        <button class="btn-filter" onclick="LoadProductGrid()">CLEAR</button>
+    </article>
+    <br>
     <article class="center">
         <article id="idArticleGrid" class="grid-container">
             <span>Loading...</span>
-            
-            <article class="card cart-card">
-                <h3 class="text-center">Cart List</h3>
-                <table class="cart-table">
-                    <thead>
-
-                        <tr>
-                            <th>SKU</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1234</td>
-                            <td>asd</td>
-                            <td>1234</td>
-                            <td>1234</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
-            
-            
-
-            
-            
         </article>
 
     </article>
         
 
-    <footer class="text-center">
+    <footer class="footer">
         Developed by Tena.
     </footer>
     <script src="./js/main.js"></script>

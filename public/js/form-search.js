@@ -4,8 +4,8 @@ const LoadDataContain = async (ev = Event) => {
     if (!body.dataSearched) {
         return alert('Empty search info!')
     }
-    const url = ev.target.action;
-    const listFiltered = await GetDataContain(url, body);
+    const urlAction = ev.target.action;
+    const listFiltered = await GetDataContain(urlAction, body);
     
     if (listFiltered){
         console.log(listFiltered)
