@@ -18,7 +18,7 @@ product.priceBetween = async(minPrice=0,maxPrice=999999999)=>{
 }
 
 product.byID=async(productID)=>{
-    return await QueryBuilder(`SELECT * FROM product join category on category.id = product.category WHERE id=${productID}`);
+    return await QueryBuilder(`SELECT product.id, product.name, product.url_image, product.price, product.discount, category.name as category FROM product join category on category.id = product.category WHERE product.id=${productID}`);
 
 }
 module.exports = product;

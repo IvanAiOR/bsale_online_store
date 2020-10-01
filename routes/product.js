@@ -17,7 +17,7 @@ router.post('/contain',
 ],
 ReturnProductsWith);
 
-router.get('/details/:id', [
+router.post('/details', [
     check('id','Should have an id').notEmpty(),
     check('id','id need to be a number').isInt(),
     validFields

@@ -13,7 +13,7 @@
     <header>
         <h1 class="logo">B SALE</h1>
         <ul class="nav">
-            <li class="navlink"><a href="/">Shop</a></li>
+            <li class="navlink"><a >Store</a></li>
             <li class="search">
                 <form id='idFormSearch' onsubmit="LoadDataContain(event)" action="/api/product/contain">
                     <input type="text" name="searchData">
@@ -28,8 +28,8 @@
         <select id="idFilter" class="inp-select column">
             <option value="-1" selected>Loading Data...</option>
         </select>       
-        <button class="btn-filter" onclick="FilterProductByCategory()">FILT</button>
-        <button class="btn-filter" onclick="LoadProductGrid()">CLEAR</button>
+        <button class="btn-filter" onclick="FilterProductByCategory()">FILTER</button>
+        <button class="btn-filter" onclick="LoadProductGrid()">CLEAN</button>
     </article>
     <br>
     <article class="center">
@@ -39,6 +39,8 @@
 
     </article>
         
+
+    
 
     <footer class="footer">
         Developed by Tena.
